@@ -6,7 +6,17 @@
     "composite": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@api/*": ["@/api/*"],
+      "@assets/*": ["@/assets/*"],
+      "@components/*": ["@/components/*"],
+      "@composables/*": ["@/composables/*"],
+      "@features/*": ["@/features/*"],
+      "@model/*": ["@/model/*"],
+      "@router/*": ["@/router/*"],
+      "@stores/*": ["@/stores/*"],
+      "@utils/*": ["@/utils/*"],
+      "@views/*": ["@/views/*"]
     }
   }
 }
