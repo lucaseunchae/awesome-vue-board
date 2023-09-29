@@ -5,8 +5,7 @@ export interface BaseIconProps {
   wght?: number | string
   grad?: number | string
   opsz?: number | string
-  shape?: 'outlined' | 'rounded' | 'sharp'
-  color?: string
+  shape?: 'rounded' | 'outlined' | 'sharp'
 }
 </script>
 
@@ -19,14 +18,12 @@ const props = withDefaults(defineProps<BaseIconProps>(), {
   wght: 400,
   grad: 0,
   opsz: 16,
-  shape: 'outlined',
-  color: 'black'
+  shape: 'rounded'
 })
 
 /* Local State */
 const shapeClassName = computed(() => `material-symbols-${props.shape}`)
 const fontSize = computed(() => `${props.opsz}px`)
-const color = computed(() => `var(--${props.color})`)
 </script>
 
 <template>
@@ -41,6 +38,5 @@ const color = computed(() => `var(--${props.color})`)
     'GRAD' v-bind(grad),
     'opsz' v-bind(opsz);
   font-size: v-bind(fontSize);
-  color: v-bind(color);
 }
 </style>
