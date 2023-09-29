@@ -6,10 +6,12 @@
 
 @import 'normalize.scss';
 @import 'color.scss';
+@import 'variables.scss';
 /*
 ==========================================================================
 0. Reset
 1. Font
+2. Transition
 ==========================================================================
 */
 
@@ -40,4 +42,17 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     sans-serif;
+}
+
+/*
+2. Transition
+*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

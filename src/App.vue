@@ -4,8 +4,14 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
   <TheHeader />
+  <main class="main-container">
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <Component :is="Component" />
+      </Transition>
+    </RouterView>
+  </main>
 </template>
 
 <style lang="scss">
