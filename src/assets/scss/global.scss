@@ -6,10 +6,13 @@
 
 @import 'normalize.scss';
 @import 'color.scss';
+@import 'variables.scss';
 /*
 ==========================================================================
 0. Reset
 1. Font
+2. Transition
+3. Scrollbar
 ==========================================================================
 */
 
@@ -40,4 +43,33 @@ body {
     'Segoe UI Emoji',
     'Segoe UI Symbol',
     sans-serif;
+}
+
+/*
+2. Transition
+*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* 
+3. Scrollbar
+*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
