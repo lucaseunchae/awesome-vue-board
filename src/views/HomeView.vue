@@ -14,6 +14,7 @@ import PostList from '@/features/Post/components/PostList.vue'
 .home-view {
   display: flex;
   gap: 40px;
-  height: 100%;
+  height: calc(100vh - var(--header-height));
+  padding: var(--view-padding);
 }
 </style>
