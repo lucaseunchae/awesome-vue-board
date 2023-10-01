@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import SkeletonLoader from '@/components/Common/SkeletonLoader.vue'
 import useFetchPostsQuery from '@/features/Post/composables/useFetchPostsQuery'
 import PostListItem from './PostListItem.vue'
 
@@ -7,11 +6,11 @@ const { data } = useFetchPostsQuery()
 </script>
 
 <template>
-  <div class="post-list">
-    <SkeletonLoader :data="data">
+  <Transition name="fade" mode="out-in">
+    <div v-if="data" class="post-list">
       <PostListItem v-for="post in data" :key="post.id" :id="post.id" :title="post.title" />
-    </SkeletonLoader>
-  </div>
+    </div>
+  </Transition>
 </template>
 
 <style scoped lang="scss">
