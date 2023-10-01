@@ -19,8 +19,6 @@ import { RouterView } from 'vue-router'
 
 .main-container {
   max-width: 1200px;
-  height: calc(100vh - var(--header-height));
   margin: 0 auto;
-  padding: 30px;
 }
 </style>
