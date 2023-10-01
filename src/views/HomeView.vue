@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import TheSideBar from '@/components/TheSidebar/TheSidebar.vue'
+import PostList from '@/features/Post/components/PostList.vue'
 </script>
 
 <template>
   <div class="home-view">
     <TheSideBar />
+    <PostList />
   </div>
 </template>
 
