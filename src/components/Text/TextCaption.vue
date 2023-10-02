@@ -8,13 +8,13 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <div class="text-hero">
+  <div class="text-caption">
     <slot></slot>
   </div>
 </template>
 
 <style scoped>
-.text-hero {
+.text-caption {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: -0.02em;
