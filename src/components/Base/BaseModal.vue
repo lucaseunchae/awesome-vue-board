@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconButton from '@/components/Common/IconButton.vue'
-import TextHeading3 from '@/components/Text/TextHeading3.vue'
+import TextSubheading from '@/components/Text/TextSubheading.vue'
 import { computed, onMounted, onUpdated, ref } from 'vue'
 
 /* Props */
@@ -84,12 +84,14 @@ onUpdated(() => {
   &__wrapper {
     display: flex;
     flex-direction: column;
+    gap: 14px;
+    padding: 14px;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
-    padding: 14px;
+    align-items: center;
   }
 
   &__close-button {
@@ -98,7 +100,8 @@ onUpdated(() => {
   }
 
   &__content {
-    padding: 14px;
+    padding-top: 0;
+    white-space: pre-wrap;
   }
 }
 </style>
