@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import BaseButton from '@/components/Base/BaseButton.vue'
 import TextBody1 from '@/components/Text/TextBody1.vue'
 import TextCaption from '@/components/Text/TextCaption.vue'
 import TextHeading1 from '@/components/Text/TextHeading1.vue'
 import useFetchPostQuery from '@/features/Post/composables/useFetchPostQuery'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 /* Router */
+const router = useRouter()
 const route = useRoute()
 const id = Number(route.params.id)
 
@@ -13,6 +15,14 @@ const id = Number(route.params.id)
 const { data } = useFetchPostQuery({
   routeParams: { id }
 })
+
+/* Event Handler */
+const handleClickUpdateButton = () => {
+  router.push({
+    name: 'posts/update',
+    params: { id }
+  })
+}
 </script>
 
 <template>
@@ -25,6 +35,13 @@ const { data } = useFetchPostQuery({
       <TextCaption>2023-09-27</TextCaption>
     </div>
     <TextBody1 class="post-detail-view__body">{{ data.body }}</TextBody1>
+    <BaseButton
+      @click="handleClickUpdateButton"
+      background-color="var(--update)"
+      class="post-detail-view__update-button"
+    >
+      수정하기
+    </BaseButton>
   </div>
 </template>
 
@@ -59,6 +76,10 @@ const { data } = useFetchPostQuery({
     margin-top: 10px;
     width: 90%;
     white-space: pre-wrap;
+  }
+
+  &__update-button {
+    margin-left: auto;
   }
 }
 </style>

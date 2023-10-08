@@ -14,3 +14,12 @@ export type PostTemplate = {
 export type PostResponse = PostTemplate
 
 export type PostsResponse = PostTemplate[]
+
+export type UpdatePostPayload = PostTemplate
+
+export type UpdatePostRequest = {
+  routeParams: {
+    id: number
+  }
+  payload: UpdatePostPayload
+}
