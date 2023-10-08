@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import BaseButton from '@/components/Base/BaseButton.vue'
+import BaseIcon from '@/components/Base/BaseIcon.vue'
 import TextBody1 from '@/components/Text/TextBody1.vue'
 import TextCaption from '@/components/Text/TextCaption.vue'
 import TextHeading1 from '@/components/Text/TextHeading1.vue'
+import useConfirmDialogStore from '@/composables/useConfirmDialogStore'
+import useDeletePostMutation from '@/features/Post/composables/useDeletePostMutation'
 import useFetchPostQuery from '@/features/Post/composables/useFetchPostQuery'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -11,12 +14,21 @@ const router = useRouter()
 const route = useRoute()
 const id = Number(route.params.id)
 
+/* Store */
+const { showConfirmDialog } = useConfirmDialogStore()
+
 /* Server State */
 const { data } = useFetchPostQuery({
   routeParams: { id }
 })
+const { mutate: deleteMutate, isLoading: isLoadingDelete } = useDeletePostMutation()
 
 /* Event Handler */
+const handleClickDeleteButton = () => {
+  showConfirmDialog('정말 삭제하시겠습니까?', () => {
+    deleteMutate({ routeParams: { id } })
+  })
+}
 const handleClickUpdateButton = () => {
   router.push({
     name: 'posts/update',
@@ -35,13 +47,21 @@ const handleClickUpdateButton = () => {
       <TextCaption>2023-09-27</TextCaption>
     </div>
     <TextBody1 class="post-detail-view__body">{{ data.body }}</TextBody1>
-    <BaseButton
-      @click="handleClickUpdateButton"
-      background-color="var(--update)"
-      class="post-detail-view__update-button"
-    >
-      수정하기
-    </BaseButton>
+    <div class="post-detail-view__buttons">
+      <BaseButton
+        @click="handleClickDeleteButton"
+        :is-loading="isLoadingDelete"
+        type="outlined"
+        text-color="var(--gray-400)"
+      >
+        <BaseIcon name="delete" />
+        삭제하기
+      </BaseButton>
+      <BaseButton @click="handleClickUpdateButton" background-color="var(--update)">
+        <BaseIcon name="edit" />
+        수정하기
+      </BaseButton>
+    </div>
   </div>
 </template>
 
@@ -78,7 +98,9 @@ const handleClickUpdateButton = () => {
     white-space: pre-wrap;
   }
 
-  &__update-button {
+  &__buttons {
+    display: flex;
+    gap: 10px;
     margin-left: auto;
   }
 }

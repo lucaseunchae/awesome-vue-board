@@ -13,8 +13,6 @@ export type PostTemplate = {
 
 export type PostResponse = PostTemplate
 
-export type PostsResponse = PostTemplate[]
-
 export type UpdatePostPayload = PostTemplate
 
 export type UpdatePostRequest = {
@@ -23,3 +21,15 @@ export type UpdatePostRequest = {
   }
   payload: UpdatePostPayload
 }
+
+export type UpdatePostResponse = {}
+
+export type DeletePostRequest = {
+  routeParams: {
+    id: number
+  }
+}
+
+export type DeletePostResponse = {}
+
+export type PostsResponse = PostTemplate[]
