@@ -60,7 +60,7 @@ onUpdated(() => {
   <dialog v-if="props.open" ref="modalRef" @click="handleClickModal" class="base-modal">
     <div class="base-modal__wrapper" :style="{ width: props.width }">
       <div class="base-modal__header">
-        <TextHeading3 weight="600">로그인</TextHeading3>
+        <TextSubheading weight="600">{{ title }}</TextSubheading>
         <IconButton
           @click="handleClickCloseButton"
           class="base-modal__close-button"
