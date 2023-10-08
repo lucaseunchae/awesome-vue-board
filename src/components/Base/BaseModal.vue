@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IconButton from '@/components/Common/IconButton.vue'
-import TextHeading3 from '@/components/Text/TextHeading3.vue'
+import TextSubheading from '@/components/Text/TextSubheading.vue'
 import { computed, onMounted, onUpdated, ref } from 'vue'
 
 /* Props */
@@ -60,7 +60,7 @@ onUpdated(() => {
   <dialog v-if="props.open" ref="modalRef" @click="handleClickModal" class="base-modal">
     <div class="base-modal__wrapper" :style="{ width: props.width }">
       <div class="base-modal__header">
-        <TextHeading3 weight="600">로그인</TextHeading3>
+        <TextSubheading weight="600">{{ title }}</TextSubheading>
         <IconButton
           @click="handleClickCloseButton"
           class="base-modal__close-button"
@@ -84,12 +84,14 @@ onUpdated(() => {
   &__wrapper {
     display: flex;
     flex-direction: column;
+    gap: 14px;
+    padding: 14px;
   }
 
   &__header {
     display: flex;
     justify-content: space-between;
-    padding: 14px;
+    align-items: center;
   }
 
   &__close-button {
@@ -98,7 +100,8 @@ onUpdated(() => {
   }
 
   &__content {
-    padding: 14px;
+    padding-top: 0;
+    white-space: pre-wrap;
   }
 }
 </style>
