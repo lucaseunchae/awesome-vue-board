@@ -1,12 +1,15 @@
 <script setup lang="ts">
+import AlertDialog from '@/components/Common/AlertDialog.vue'
 import ToastMessage from '@/components/Common/ToastMessage.vue'
 import TheHeader from '@/components/TheHeader.vue'
+import useAlertDialogStore from '@/composables/useAlertDialogStore'
 import useToastMessageStore from '@/composables/useToastMessageStore'
 import { storeToRefs } from 'pinia'
 import { RouterView } from 'vue-router'
 
 /* Store */
 const { messages: toastMessages } = storeToRefs(useToastMessageStore())
+const { dialogs: alertDialogs } = storeToRefs(useAlertDialogStore())
 </script>
 
 <template>
@@ -20,6 +23,7 @@ const { messages: toastMessages } = storeToRefs(useToastMessageStore())
   </main>
 
   <Teleport to="body">
+    <AlertDialog v-for="(body, index) in alertDialogs" :key="index" :body="body" />
     <div class="toast-messages">
       <ToastMessage
         v-for="({ state, body }, index) in toastMessages"
