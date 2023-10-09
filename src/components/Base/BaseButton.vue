@@ -50,11 +50,12 @@ const border = computed(() =>
   padding-inline: 10px;
   border: none;
   border: v-bind(border);
-  border-radius: 16px;
+  border-radius: 14px;
   font-size: 14px;
   font-weight: 500;
   color: rgba(v-bind(textColor) / 1);
   background-color: rgba(v-bind(backgroundColor));
+  white-space: nowrap;
   cursor: pointer;
 }
 
