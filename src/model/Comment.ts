@@ -14,6 +14,19 @@ export type CommentTemplate = {
 
 export type CommentResponse = CommentTemplate
 
+export interface CreateCommentPayload {
+  body: string
+}
+
+export type CreateCommentRequest = {
+  queryParams: {
+    postId: number
+  }
+  payload: CreateCommentPayload
+}
+
+export type CreateCommentResponse = {}
+
 export interface UpdateCommentPayload {
   body: string
 }

@@ -4,6 +4,8 @@ import type {
   CommentResponse,
   CommentsRequest,
   CommentsResponse,
+  CreateCommentRequest,
+  CreateCommentResponse,
   DeleteCommentRequest,
   DeleteCommentResponse,
   UpdateCommentRequest,
@@ -12,6 +14,13 @@ import type {
 
 export const fetchComment = async (req: CommentRequest) =>
   (await axiosInstance.get<CommentResponse>(`/comments/${req.routeParams.id}`)).data
+
+export const createComment = async (req: CreateCommentRequest) =>
+  (
+    await axiosInstance.post<CreateCommentResponse>('/comments', req.payload, {
+      params: { postId: req.queryParams.postId }
+    })
+  ).data
 
 export const updateComment = async (req: UpdateCommentRequest) =>
   (await axiosInstance.put<UpdateCommentResponse>(`/comments/${req.routeParams.id}`, req.payload))

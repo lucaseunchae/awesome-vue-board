@@ -3,6 +3,7 @@ import TextSubheading from '@/components/Text/TextSubheading.vue'
 import useFetchCommentsQuery from '@/features/Comment/composables/useFetchCommentsQuery'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import CommentCreateForm from './CommentCreateForm.vue'
 import CommentList from './CommentList.vue'
 
 /* Router */
@@ -21,6 +22,7 @@ const { data } = useFetchCommentsQuery({ queryParams: { postId } })
     <TextSubheading weight="500" class="comment-container__title">
       {{ commentTitle }}
     </TextSubheading>
+    <CommentCreateForm />
     <CommentList :comments="data" />
   </div>
 </template>
