@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import CommentContainer from '@/features/Comment/components/CommentContainer.vue'
 import PostDetailContent from '@/features/Post/components/PostDetailContent.vue'
 </script>
 
 <template>
   <div class="post-detail-view">
     <PostDetailContent />
-    
+    <CommentContainer />
   </div>
 </template>
 
