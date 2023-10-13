@@ -20,7 +20,5 @@ const { data } = useFetchPostsQuery()
   width: 630px;
   min-width: 400px;
   height: 100%;
-  padding-right: 20px;
-  overflow-y: auto;
 }
 </style>
