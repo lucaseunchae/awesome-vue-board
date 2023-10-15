@@ -7,7 +7,7 @@ import { useRoute } from 'vue-router'
 
 /* Router */
 const route = useRoute()
-const postId = route.params.postId
+const postId = Number(route.params.postId)
 
 /* Local State */
 const body = ref('')
