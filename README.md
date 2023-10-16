@@ -1,7 +1,7 @@
 # Awesome Vue Board
 
 <p align="center"><img src="https://github.com/lucaseunchae/awesome-vue-board/assets/123533586/72960c17-260d-4b2f-8934-3fc973b8d15f" width="400px"></p>
-<p align="center">Vue3 프로젝트의 구조와 코드 작성 방법을 참고할 수 있는 게시판 데모입니다.</p>
+<p align="center">Vue3 프로젝트의 구조와 코드 작성 방법을 참고할 수 있는 <a href="https://lambent-khapse-2d4d34.netlify.app/" target="_blank">게시판 데모</a>입니다.</p>
 
 <br>
 
